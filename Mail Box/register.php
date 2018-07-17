@@ -8,7 +8,9 @@
 	  <div id="wrapper">
 	      <div id="header">   </div>
 		  <div id="content">
-		       <div class="content">     </div>
+		       <div class="content"> 
+			    Contact Us
+			   </div>
 			   <div class="right">   
 			     
 			  <form action="" method="post" > 
@@ -61,7 +63,7 @@
 					  </td>
 				   </tr>  
 				   <tr>
-				      <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="submit" name="registerbtn" value="Create Account"  /></td>
+				      <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="submit" name="registerbtn" value="Create Account"  height="40px" width="60px" /></td>
 				   </tr>		 
 				 </table>		
 				</form>
@@ -73,3 +75,37 @@
 	</div>
 </body>
 </html>
+<?php
+$firstname = $_POST['first_name'];
+$lastname = $_POST['last_name'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$passwordConfirm = $_POST['con_password'];
+
+
+if(password.){
+}
+$con = mysqli_connect("localhost","root","") or die("Not connected to mysql database");
+$c = "create database emailserver";
+$res = mysqli_query($con,$c);
+
+$db = mysqli_select_db($con,"emailserver");
+
+$c = "create table employee(firstname varchar(30)lastname varchar(30),username varchar(30),password varchar(30),ename varchar(30),designation varchar(20),salary int,city varchar(20),mob bigint)";
+$res = mysqli_query($con,$c);
+
+if($_POST['insert']){
+  if(empty($eid) || empty($ename) || empty($designation) || empty($salary) || empty($city) || empty($mobile)){
+     echo "<script> alert('All the Fields Are Not Filled. Please Fill and Try Again Later');</script>";
+  }else{
+     $insert_Query = "insert into employee values($eid,'$ename','$designation',$salary,'$city',$mobile)";
+	 $res = mysqli_query($con,$insert_Query);
+	 echo "<script>alert('Record Inserted');</script>";
+  }
+}
+
+
+
+
+
+?>
