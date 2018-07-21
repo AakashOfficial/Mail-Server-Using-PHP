@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <head>
-<title>Two Column Right Layout</title>
+<title>Mail Box</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
    <div id="mainBody">
 	  <div id="wrapper">
-	      <div id="header">   </div>
+	      <div id="header">  
+		      <div>
+			    <h1><i>mail</i><font size="+4">Box</font></h1>
+			  </div>
+		   </div>
 		  <div id="content">
 		       <div class="content"> 
 			    Contact Us
@@ -54,8 +58,8 @@
 				   <tr>
 				      <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Country</td>
 					  <td><select name="country">
-                          <option>Select</option> 
                           <option>India</option> 
+                          <option>Nepal</option> 
                           <option>Japan</option> 
                           <option>Russia</option> 
 						  <option>England</option>   
@@ -75,37 +79,37 @@
 	</div>
 </body>
 </html>
-<?php
+<?php 
 $firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $passwordConfirm = $_POST['con_password'];
+$date_of_birth = $_POST['dob'];
+$gender = $_POST['gender'];
+$mobile = $_POST['mobile'];
+$country = $_POST['country'];
 
-
-if(password.){
-}
 $con = mysqli_connect("localhost","root","") or die("Not connected to mysql database");
-$c = "create database emailserver";
-$res = mysqli_query($con,$c);
+  $c = "create database emailserver";
+  $res = mysqli_query($con,$c);
 
-$db = mysqli_select_db($con,"emailserver");
+  $db = mysqli_select_db($con,"emailserver");
 
-$c = "create table employee(firstname varchar(30)lastname varchar(30),username varchar(30),password varchar(30),ename varchar(30),designation varchar(20),salary int,city varchar(20),mob bigint)";
-$res = mysqli_query($con,$c);
+  $c = "create table employee(firstname varchar(30),lastname varchar(30),username varchar(30),password varchar(30),dob date,gender varchar(6),mob varchar(20),country varchar(30))";
+  $res = mysqli_query($con,$c);
 
-if($_POST['insert']){
-  if(empty($eid) || empty($ename) || empty($designation) || empty($salary) || empty($city) || empty($mobile)){
+if($_POST['registerbtn']){
+  if(empty($firstname) || empty($lastname) || empty($username) || empty($password) || empty($date_of_birth) || empty($gender) || empty($mobile) || empty($country)){
      echo "<script> alert('All the Fields Are Not Filled. Please Fill and Try Again Later');</script>";
   }else{
-     $insert_Query = "insert into employee values($eid,'$ename','$designation',$salary,'$city',$mobile)";
+     if($password === $passwordConfirm){
+     $insert_Query = "insert into employee values('$firstname','$lastname','$username','$password','$date_of_birth','$gender','$mobile','$country')";
 	 $res = mysqli_query($con,$insert_Query);
 	 echo "<script>alert('Record Inserted');</script>";
+	 } else{
+	   echo "<script>alert('Password and Confirm is Not Same');</script>";
+	 }
   }
 }
-
-
-
-
-
 ?>
