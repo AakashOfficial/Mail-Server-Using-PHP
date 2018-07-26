@@ -105,5 +105,9 @@
 <p class="style12"><font size="+1"><b>© mailBOX.com 2018</b></font></p>
 
 
+
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->
+
 </body>
 </html>
