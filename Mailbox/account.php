@@ -1,3 +1,14 @@
+<?php
+session_start();
+include 'functions.php';
+$uname=$_SESSION['username'];
+
+if(loggedin()==FALSE)
+{
+ header("Location:index.php");
+ exit();
+}
+?>
 
 <html>
 <head>
