@@ -33,3 +33,49 @@ echo"<option value='".$row['uname']."'>".$row['uname']."</option>";
 
 </body>
 </html>
+<?php
+session_start();
+$Receiver=$_POST['to'];
+$Sender=$_SESSION['username'];
+$Subject=$_POST['sub'];
+$Message=$_POST['msg'];
+//Connection
+$con = mysql_connect("localhost", "root", "");
+
+//Selection
+$db = mysql_select_db("mailbox");
+
+if($_POST['send'])
+{
+
+//Creation of Table
+/*$con="create table InBox(uid int auto_increment,Receiver varchar(100),Sender varchar(100),Subject varchar(200),Message varchar(1000),Date datetime,primary key(uid))";
+$res = mysql_query($con);*/
+
+$ins="insert into InBox (Receiver,Sender,Subject,Message)values('$Receiver','$Sender','$Subject','$Message')";
+		$res = mysql_query($ins);
+		echo "<script>alert('msg send');</script>";
+}
+session_start();
+$Receiver=$_POST['to'];
+$Sender=$_SESSION['username'];
+$Subject=$_POST['sub'];
+$Message=$_POST['msg'];
+//Connection
+$con = mysql_connect("localhost", "root", "");
+
+//Selection
+$db = mysql_select_db("mailbox");
+
+if(isset($_POST['draft']))
+{
+
+//Creation of Table
+/*$con="create table Draft(uid int auto_increment,Receiver varchar(100),Sender varchar(100),Subject varchar(200),Message varchar(1000),Date datetime,primary key(uid))";
+$res = mysql_query($con);*/
+
+$ins="insert into Draft (Receiver,Sender,Subject,Message)values('$Receiver','$Sender','$Subject','$Message')";
+		$res = mysql_query($ins);
+		echo "<script>alert('save to draft');</script>";
+}
+?>
