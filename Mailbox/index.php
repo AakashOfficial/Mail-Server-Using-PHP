@@ -1,3 +1,47 @@
+  <?php
+include 'functions.php';
+//check if logged in already
+if(loggedin()==TRUE)
+{
+ header("Location:account.php");
+ exit();
+}
+if(isset($_POST['login']))
+{
+//get data
+$username=$_POST['uname'];
+$password=$_POST['pass'];
+$rememberme=$_POST['rememberme'];
+
+ if($username&&$password)
+ {
+ $login=mysql_query("select * from register where uname='$username'");
+   while($row=mysql_fetch_assoc($login))
+   {
+    $db_password=$row['pass'];
+    //if(md5($password)==$db_password)
+	if($password==$db_password)
+     $loginok=TRUE;
+    else
+    $loginok=FALSE;
+   }
+   if($loginok==TRUE)
+   {
+   if($rememberme=="on")
+   setcookie("username",$username,time()+7200);
+   else if($rememberme=="")
+   $_SESSION['username']=$username;
+   header("Location:index.php");
+   exit();
+   }
+   else
+   $msg="<font color=red>Username/password combination incorrect</font>";
+ }
+  else
+  die("Hit back and enter a username and password.");
+}
+?>
+
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/index.css">
