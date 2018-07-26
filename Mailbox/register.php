@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="images/icon.jpg" rel="shortcut icon" type="images/icon.jpg">
 <link rel="stylesheet" type="text/css" href="css/register.css">
@@ -393,4 +394,7 @@ Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <hr style="width: 1120px;">
 <p class="style12"><font size="+1"><b>© mailBOX.com 2013</b></font></p>
 
-</body></html>
+<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
+<!-- End Of Analytics Code -->
+</body>
+</html>
