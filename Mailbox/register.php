@@ -1,3 +1,41 @@
+<?php
+$Enterfirstname=$_POST['fname'];
+$Enterlastname=$_POST['lname'];
+$Chooseyourusername=$_POST['uname'];
+$Createapassword=$_POST['pass'];
+$Confirmpassword=$_POST['cfpass'];
+$Birthday=$_POST['bd_date'];
+$Gender=$_POST['gender'];
+$mobilephone=$_POST['mobile'];
+$Country=$_POST['country'];
+//connection
+$con=mysql_connect("localhost","root","");
+//creation
+$con="create database mailbox";
+$res=mysql_query($con);
+//select
+$db=mysql_select_db("mailbox");
+//create of table
+$c="create table register(uid int auto_increment,fname varchar(20),lname varchar(20),uname varchar(20),pass varchar(20),cfpass varchar(20),bd_date  varchar(20),gender varchar(10),mobile bigint,country varchar(30),primary key(uid))";
+$res=mysql_query($c);                     
+if($_POST['register'])
+{
+ if(empty($Enterfirstname)||empty($Enterlastname)||empty($Chooseyourusername)||empty($Createapassword)||empty($Confirmpassword)||empty($Birthday)||empty($Gender)||empty($mobilephone)||empty($Country))
+	{
+		echo "<script>alert('Any field must not be blank');</script>";
+	}
+	else
+	{
+		$ins="insert into register (fname,lname,uname,pass,cfpass,bd_date,gender,mobile,country)values('$Enterfirstname','$Enterlastname','$Chooseyourusername','$Createapassword','$Confirmpassword','$Birthday','$Gender','$mobilephone','$Country')";
+		$res = mysql_query($ins);
+		echo "<script>alert('One New User Registered!.....');</script>";
+		echo "<script>window.location='http://localhost/
+		mailbox/index.php';</script>";
+	}
+	
+}
+?>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
