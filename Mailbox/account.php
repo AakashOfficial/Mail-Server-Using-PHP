@@ -24,7 +24,7 @@ WEB DESINING
  </ul>
 </div>
 <div class="contents" id="content">
-
+<?php echo "Welcome ".$uname;?> 
 <br>
 <iframe name="a" height="500" width="500" src="inbox.php" scrolling="no" frameborder="0"></iframe>
 </div>
