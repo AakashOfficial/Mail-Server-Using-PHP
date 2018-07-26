@@ -10,7 +10,14 @@ MAIL FORM
 <h1>To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <select id="user" name="to"  style="width:320">
 <option selected="selected" value="-1">Select a Receiver</option>
-</select>
+<?php include("connect.php");
+$query="Select uname from register";
+$result=mysql_query($query);
+while($row=mysql_fetch_assoc($result))
+{
+echo"<option value='".$row['uname']."'>".$row['uname']."</option>";
+}
+?></select>
 <br>
 <h1>Subject:
 <input type="text" size="50" name="sub">
