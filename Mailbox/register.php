@@ -430,7 +430,7 @@ Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <hr style="width: 1120px;">
-<p class="style12"><font size="+1"><b>© mailBOX.com 2013</b></font></p>
+<p class="style12"><font size="+1"><b>Â© mailBOX.com 2013</b></font></p>
 
 <script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
 <!-- End Of Analytics Code -->
