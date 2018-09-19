@@ -4,6 +4,7 @@ $uname=$_SESSION['username'];
 include("connect.php");
 $res=mysql_query("select * from InBox where Sender='$uname'");
 ?>
+
 <br />
 <table border="2" align="center" cellpadding="20" cellspacing="5">
 <tr>
