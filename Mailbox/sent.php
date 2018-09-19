@@ -13,6 +13,7 @@ $res=mysql_query("select * from InBox where Sender='$uname'");
 <th>Message</th>
 <th>Date & Time</th>
 </tr>
+ 
 <?php
 while($row=mysql_fetch_array($res))
 {
@@ -20,5 +21,3 @@ while($row=mysql_fetch_array($res))
 }
 echo "</table>";
 ?>
-
- 
